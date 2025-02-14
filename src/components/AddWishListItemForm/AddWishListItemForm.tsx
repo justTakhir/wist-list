@@ -1,4 +1,15 @@
 import React, { useState } from "react";
+import { useFormStatus } from "react-dom";
+import styles from "./AddWishListItemForm.module.css";
+
+function Sumbit() {
+  const { pending } = useFormStatus();
+  return (
+    <button type="submit" disabled={pending}>
+      {pending ? "Добавление.." : "Добавить"}
+    </button>
+  )
+}
 
 export function AddWishListItemForm() {
   const [name, setName] = useState<string>("");
@@ -10,16 +21,19 @@ export function AddWishListItemForm() {
     return isValidPrefix;
   }
 
-  function handleSubmit() {
+  function addWish(formData: FormData) {
+    const query = formData.get("query")
+    alert(query)
     isValidLink(shopLink);
   }
 
   return (
-    <form>
-      <input name="Название" value={name}/>
-      <input name="Ссылка" value={shopLink}/>
-      <input name="Изображения" type="image"/>
-      <button onClick={handleSubmit} type="submit">Добавить</button>
+    <form method="post" action={addWish} className={styles.form}>
+      <input name="Название" value={name} onChange={e => setName(e.target.value)}/>
+      <input name="Ссылка" value={shopLink} onChange={e => setShopLink(e.target.value)}/>
+      <Sumbit/>
+      {/* <input name="Изображения" type="image"/> */}
+      
     </form>
   )
 }

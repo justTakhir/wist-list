@@ -1,10 +1,8 @@
 export interface Wish {
-  /** Название подарка */
+  /** Wish name */
   name: string;
-  /** Ссылка на конкретный лот */
+  /** Link to specific gift when it specified*/
   shopLink?: string;
-  /** Одно или несколько изображений для лучшего знакомства с желаемым  */
+  /** One or more images for maximal understanding about author wishes */
   images?: string[]
 }
-//
-// interface WishList {}

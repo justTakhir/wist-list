@@ -1,5 +1,6 @@
 import React from "react";
 import { Wish } from "../../model/Wish";
+import styles from "./WishListItem.module.css";
 
 type WishListItemProps = {
   wish: Wish;
@@ -7,7 +8,7 @@ type WishListItemProps = {
 
 export function WishListItem({wish}: WishListItemProps) {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div>
         {wish.name}
       </div> 
