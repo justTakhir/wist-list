@@ -1,4 +1,5 @@
 import './App.css'
+import { Homepage } from './components/Homepage/Homepage'
 import { PageLayout } from './components/PageLayout/PageLayout'
 import { WishList } from './components/WishList/WishList'
 
@@ -6,7 +7,8 @@ function App() {
 
   return (
     <PageLayout>
-      <WishList/>
+      {/* <WishList/> */}
+      <Homepage/>
     </PageLayout>
   )
 }
